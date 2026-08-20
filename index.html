@@ -354,12 +354,32 @@
 
 
         /* =========================
+           HOME CONTENT AREA
+        ========================== */
+
+        .home-layout {
+
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 34px;
+
+            width: 100%;
+        }
+
+
+        /* =========================
            CARD CONTAINER
         ========================== */
 
         .cards {
 
-            width: 100%;
+            width: 620px;
+
+            max-width: 100%;
+
+            flex-shrink: 0;
         }
 
 
@@ -369,9 +389,7 @@
 
         .learning-card {
 
-            width: 620px;
-
-            max-width: 100%;
+            width: 100%;
 
             height: 150px;
 
@@ -646,8 +664,136 @@
 
 
         /* =========================
+           LAB DISCLAIMER
+        ========================== */
+
+        .disclaimer {
+
+            flex: 1;
+
+            min-width: 300px;
+
+            max-width: 520px;
+
+            min-height: 150px;
+
+            padding: 26px 30px;
+
+            border-radius: 15px;
+
+            border:
+                1px solid
+                rgba(0,183,255,0.75);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(10,18,27,0.98),
+                    rgba(5,10,15,0.98)
+                );
+
+            box-shadow:
+                0 0 0 1px
+                rgba(0,183,255,0.10),
+
+                0 0 25px
+                rgba(0,183,255,0.05);
+        }
+
+
+        .disclaimer-header {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 16px;
+
+            margin-bottom: 18px;
+        }
+
+
+        .disclaimer-icon {
+
+            width: 38px;
+
+            height: 38px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            flex-shrink: 0;
+
+            border:
+                3px solid
+                #00d9ff;
+
+            border-radius: 50%;
+
+            color:
+                #00d9ff;
+
+            font-size: 23px;
+
+            font-weight: 700;
+        }
+
+
+        .disclaimer-title {
+
+            color:
+                #39e600;
+
+            font-size: 21px;
+
+            font-weight: 700;
+        }
+
+
+        .disclaimer p {
+
+            font-size: 16px;
+
+            line-height: 1.65;
+
+            color:
+                rgba(255,255,255,0.78);
+        }
+
+
+        /* =========================
            RESPONSIVE
         ========================== */
+
+        @media (max-width: 1100px) {
+
+            .home-layout {
+
+                flex-direction: column;
+
+                gap: 24px;
+            }
+
+
+            .cards {
+
+                width: 100%;
+
+                max-width: 720px;
+            }
+
+
+            .disclaimer {
+
+                width: 100%;
+
+                max-width: 720px;
+            }
+        }
+
 
         @media (max-width: 900px) {
 
@@ -671,9 +817,9 @@
             }
 
 
-            .learning-card {
+            .hero p {
 
-                width: 100%;
+                white-space: normal;
             }
         }
 
@@ -721,11 +867,6 @@
             }
 
 
-            /*
-             * Allow the description to wrap
-             * naturally on small screens.
-             */
-
             .hero p {
 
                 white-space: normal;
@@ -747,6 +888,19 @@
                 white-space: normal;
             }
 
+
+            .disclaimer {
+
+                min-width: 0;
+
+                padding: 22px;
+            }
+
+
+            .disclaimer p {
+
+                font-size: 15px;
+            }
         }
 
     </style>
@@ -824,7 +978,9 @@
     <main class="main-content">
 
 
-        <!-- HERO -->
+        <!-- =========================
+             HERO
+        ========================== -->
 
         <section class="hero">
 
@@ -853,51 +1009,94 @@
 
 
         <!-- =========================
-             INTUNE TILE
+             HOME CONTENT
         ========================== -->
 
-        <section class="cards">
+        <section class="home-layout">
 
 
-            <a
-                href="intune/intune.html"
-                class="learning-card"
-            >
+            <!-- =========================
+                 INTUNE TILE
+            ========================== -->
+
+            <div class="cards">
 
 
-                <div class="card-icon">
+                <a
+                    href="intune/intune.html"
+                    class="learning-card"
+                >
 
-                    <div class="intune-icon">
 
-                        <div class="screen-one"></div>
+                    <div class="card-icon">
 
-                        <div class="screen-two"></div>
+                        <div class="intune-icon">
 
+                            <div class="screen-one"></div>
+
+                            <div class="screen-two"></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="card-content">
+
+                        <h2>
+                            Intune
+                        </h2>
+
+
+                        <p>
+                            Hands-on Intune labs and topics explored
+                        </p>
+
+                    </div>
+
+
+                    <div class="card-arrow">
+                        →
+                    </div>
+
+
+                </a>
+
+
+            </div>
+
+
+            <!-- =========================
+                 LAB DISCLAIMER
+            ========================== -->
+
+            <div class="disclaimer">
+
+
+                <div class="disclaimer-header">
+
+                    <div class="disclaimer-icon">
+                        i
+                    </div>
+
+                    <div class="disclaimer-title">
+                        Lab Disclaimer
                     </div>
 
                 </div>
 
 
-                <div class="card-content">
-
-                    <h2>
-                        Intune
-                    </h2>
-
-
-                    <p>
-                        Hands-on Intune labs and topics explored
-                    </p>
-
-                </div>
+                <p>
+                    Company names, usernames, device names, logos,
+                    branding, colors, and other details shown in these
+                    lab notes are used for demonstration and
+                    documentation purposes. Any resemblance to actual
+                    organizations, individuals, products, or brands is
+                    purely coincidental.
+                </p>
 
 
-                <div class="card-arrow">
-                    →
-                </div>
-
-
-            </a>
+            </div>
 
 
         </section>

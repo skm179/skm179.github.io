@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Linux / Ubuntu Compliance | My Learning Path</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #03070c;
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        /* =========================
+           MAIN LAYOUT
+        ========================= */
+
+        .layout {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* =========================
+           SIDEBAR
+        ========================= */
+
+        .sidebar {
+            width: 280px;
+            min-width: 280px;
+            background: linear-gradient(
+                180deg,
+                #09247c 0%,
+                #086bb0 42%,
+                #009b8f 72%,
+                #00a83d 100%
+            );
+
+            padding: 25px 15px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-container {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .logo {
+            width: 215px;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .menu-title {
+            font-size: 15px;
+            font-weight: bold;
+            margin: 0 10px 14px;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+        }
+
+        .menu {
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #ffffff;
+
+            display: flex;
+            align-items: center;
+
+            padding: 13px 15px;
+
+            border-radius: 12px;
+
+            background: rgba(0, 150, 200, 0.35);
+
+            border: 1px solid rgba(255,255,255,0.18);
+
+            transition: 0.25s ease;
+        }
+
+        .menu a:hover {
+            background: rgba(0, 220, 190, 0.55);
+            transform: translateX(3px);
+        }
+
+        .menu a.active {
+            background: linear-gradient(
+                90deg,
+                rgba(0, 170, 230, 0.75),
+                rgba(0, 210, 140, 0.55)
+            );
+
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        .menu-icon {
+            width: 38px;
+            height: 38px;
+
+            background: rgba(255,255,255,0.95);
+            color: #0877bd;
+
+            border-radius: 9px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin-right: 12px;
+
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .menu-text {
+            flex: 1;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .arrow-small {
+            font-size: 20px;
+        }
+
+        /* =========================
+           MAIN CONTENT
+        ========================= */
+
+        .content {
+            flex: 1;
+            padding: 38px 48px 60px;
+            overflow-x: hidden;
+        }
+
+        .page-header {
+            border-bottom: 1px solid #202a33;
+            padding-bottom: 28px;
+            margin-bottom: 35px;
+        }
+
+        .page-header h1 {
+            font-size: 34px;
+            margin-bottom: 10px;
+        }
+
+        .page-header h1 span {
+            color: #12aaff;
+        }
+
+        .page-header p {
+            color: #cfd8df;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* =========================
+           IMAGE CAROUSEL
+        ========================= */
+
+        .image-section {
+            width: 100%;
+            max-width: 1050px;
+            margin: 0 auto 40px;
+        }
+
+        .image-viewer {
+            position: relative;
+
+            background: #080f16;
+
+            border: 1px solid #00bfff;
+
+            border-radius: 14px;
+
+            padding: 20px;
+
+            box-shadow:
+                0 0 18px rgba(0, 191, 255, 0.10);
+        }
+
+        .image-frame {
+            width: 100%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            min-height: 350px;
+
+            background: #05090d;
+
+            border-radius: 10px;
+
+            overflow: hidden;
+        }
+
+        .image-frame img {
+            display: block;
+
+            max-width: 100%;
+            max-height: 600px;
+
+            width: auto;
+            height: auto;
+
+            object-fit: contain;
+        }
+
+        /* =========================
+           CAROUSEL BUTTONS
+        ========================= */
+
+        .carousel-button {
+            position: absolute;
+
+            top: 50%;
+            transform: translateY(-50%);
+
+            width: 48px;
+            height: 48px;
+
+            border-radius: 50%;
+
+            border: 1px solid rgba(255,255,255,0.25);
+
+            background: rgba(0, 0, 0, 0.75);
+
+            color: #ffffff;
+
+            font-size: 28px;
+
+            cursor: pointer;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            transition: 0.2s ease;
+
+            z-index: 5;
+        }
+
+        .carousel-button:hover:not(:disabled) {
+            background: #079fd9;
+            border-color: #00d9ff;
+        }
+
+        .carousel-button:disabled {
+            opacity: 0.25;
+            cursor: not-allowed;
+        }
+
+        .previous {
+            left: 32px;
+        }
+
+        .next {
+            right: 32px;
+        }
+
+        .image-counter {
+            text-align: center;
+
+            margin-top: 15px;
+
+            color: #9eabb5;
+
+            font-size: 14px;
+        }
+
+        .image-caption {
+            text-align: center;
+
+            margin-top: 7px;
+
+            color: #ffffff;
+
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        /* =========================
+           NOTES
+        ========================= */
+
+        .notes {
+            max-width: 1050px;
+            margin: 0 auto;
+        }
+
+        .notes h2 {
+            font-size: 26px;
+            margin-bottom: 15px;
+
+            color: #ffffff;
+        }
+
+        .notes h2 span {
+            color: #39ff14;
+        }
+
+        .notes p {
+            color: #d5dde4;
+
+            font-size: 16px;
+
+            line-height: 1.75;
+
+            margin-bottom: 18px;
+        }
+
+        .notes h3 {
+            color: #12aaff;
+
+            font-size: 19px;
+
+            margin-top: 28px;
+            margin-bottom: 10px;
+        }
+
+        .notes ul {
+            margin-left: 22px;
+            margin-bottom: 18px;
+        }
+
+        .notes li {
+            color: #d5dde4;
+
+            margin-bottom: 9px;
+
+            line-height: 1.6;
+        }
+
+        .highlight {
+            border-left: 3px solid #00d9ff;
+
+            background: rgba(0, 170, 220, 0.06);
+
+            padding: 16px 18px;
+
+            margin: 22px 0;
+
+            border-radius: 0 8px 8px 0;
+        }
+
+        .highlight strong {
+            color: #ffffff;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .sidebar {
+                width: 220px;
+                min-width: 220px;
+            }
+
+            .logo {
+                width: 175px;
+            }
+
+            .content {
+                padding: 30px 25px;
+            }
+
+            .page-header h1 {
+                font-size: 29px;
+            }
+        }
+
+        @media (max-width: 700px) {
+
+            .layout {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                min-width: 100%;
+
+                padding: 18px;
+            }
+
+            .logo-container {
+                margin-bottom: 20px;
+            }
+
+            .logo {
+                width: 150px;
+            }
+
+            .menu {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+            .menu a {
+                flex: 1;
+                min-width: 190px;
+            }
+
+            .content {
+                padding: 25px 18px;
+            }
+
+            .image-frame {
+                min-height: 250px;
+            }
+
+            .carousel-button {
+                width: 40px;
+                height: 40px;
+                font-size: 22px;
+            }
+
+            .previous {
+                left: 12px;
+            }
+
+            .next {
+                right: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="layout">
+
+    <!-- =========================
+         SIDEBAR
+    ========================== -->
+
+    <aside class="sidebar">
+
+        <div class="logo-container">
+            <img
+                src="../learning-path-logo.png"
+                alt="My Learning Path"
+                class="logo"
+            >
+        </div>
+
+        <div class="menu-title">
+            INTUNE
+        </div>
+
+        <nav class="menu">
+
+            <!-- HOME -->
+            <a href="../index.html">
+
+                <div class="menu-icon">
+                    🏠
+                </div>
+
+                <div class="menu-text">
+                    Home
+                </div>
+
+                <div class="arrow-small">
+                    ›
+                </div>
+
+            </a>
+
+
+            <!-- COMPANY BRANDING -->
+            <a href="company-branding.html">
+
+                <div class="menu-icon">
+                    🎨
+                </div>
+
+                <div class="menu-text">
+                    Company Branding
+                </div>
+
+                <div class="arrow-small">
+                    ›
+                </div>
+
+            </a>
+
+
+            <!-- WINDOWS ENROLLMENT -->
+            <a href="windows-enrollment.html">
+
+                <div class="menu-icon">
+                    🪟
+                </div>
+
+                <div class="menu-text">
+                    Windows Enrollment
+                </div>
+
+                <div class="arrow-small">
+                    ›
+                </div>
+
+            </a>
+
+
+            <!-- LINUX ENROLLMENT -->
+            <a href="linux-enrollment.html">
+
+                <div class="menu-icon">
+                    🐧
+                </div>
+
+                <div class="menu-text">
+                    Linux Enrollment
+                </div>
+
+                <div class="arrow-small">
+                    ›
+                </div>
+
+            </a>
+
+
+            <!-- LINUX COMPLIANCE -->
+            <a
+                href="linux-compliance.html"
+                class="active"
+            >
+
+                <div class="menu-icon">
+                    🔐
+                </div>
+
+                <div class="menu-text">
+                    Linux / Ubuntu Compliance
+                </div>
+
+                <div class="arrow-small">
+                    ›
+                </div>
+
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
+    <main class="content">
+
+        <header class="page-header">
+
+            <h1>
+                Linux / Ubuntu
+                <span>Compliance</span>
+            </h1>
+
+            <p>
+                Hands-on lab documenting Linux device compliance,
+                encryption requirements, noncompliance, remediation,
+                and final compliance verification in Microsoft Intune.
+            </p>
+
+        </header>
+
+
+        <!-- =========================
+             IMAGE CAROUSEL
+        ========================== -->
+
+        <section class="image-section">
+
+            <div class="image-viewer">
+
+                <button
+                    class="carousel-button previous"
+                    id="previousButton"
+                    aria-label="Previous image"
+                >
+                    ‹
+                </button>
+
+
+                <div class="image-frame">
+
+                    <img
+                        id="complianceImage"
+                        src="images/01-initial-compliant-ubuntu.png"
+                        alt="Ubuntu device initially showing compliant status"
+                    >
+
+                </div>
+
+
+                <button
+                    class="carousel-button next"
+                    id="nextButton"
+                    aria-label="Next image"
+                >
+                    ›
+                </button>
+
+
+                <div
+                    class="image-counter"
+                    id="imageCounter"
+                >
+                    1 / 9
+                </div>
+
+
+                <div
+                    class="image-caption"
+                    id="imageCaption"
+                >
+                    Initial Ubuntu Compliance
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             NOTES
+        ========================== -->
+
+        <section class="notes">
+
+            <h2>
+                Linux / Ubuntu Compliance
+                <span>Lab Notes</span>
+            </h2>
+
+
+            <p>
+                This lab documents the process of configuring and
+                validating device encryption compliance for an Ubuntu
+                device enrolled in Microsoft Intune.
+            </p>
+
+
+            <div class="highlight">
+
+                <strong>
+                    Compliance lifecycle:
+                </strong>
+
+                Compliant → Policy Applied → Noncompliant →
+                Encryption Remediated → Compliant
+            </div>
+
+
+            <h3>
+                1. Initial Device State
+            </h3>
+
+            <p>
+                The Ubuntu device was initially enrolled in Intune
+                and reported as compliant.
+            </p>
+
+
+            <h3>
+                2. Create the Encryption Compliance Policy
+            </h3>
+
+            <p>
+                A Linux compliance policy named
+                <strong>Linux-Device Encryption</strong>
+                was created in Intune.
+            </p>
+
+            <p>
+                The policy included the requirement:
+                <strong>Require Device Encryption</strong>.
+            </p>
+
+
+            <h3>
+                3. Device Becomes Noncompliant
+            </h3>
+
+            <p>
+                After the encryption requirement was applied,
+                the Ubuntu device did not satisfy the requirement
+                and was reported as noncompliant.
+            </p>
+
+
+            <h3>
+                4. Identify the Compliance Issue
+            </h3>
+
+            <p>
+                The Ubuntu device displayed a compliance warning
+                indicating that the device did not meet the
+                organization's security and compliance requirements.
+            </p>
+
+            <p>
+                The specific issue identified was the requirement
+                to encrypt the device's storage.
+            </p>
+
+
+            <h3>
+                5. Remediation
+            </h3>
+
+            <p>
+                The device encryption requirement was addressed
+                through the Linux environment and Intune Agent.
+            </p>
+
+
+            <h3>
+                6. Verify Compliance
+            </h3>
+
+            <p>
+                After remediation, the compliance policy was checked
+                again. The encryption requirement changed to
+                <strong>Compliant</strong>.
+            </p>
+
+            <p>
+                The Linux device was then verified in Intune and
+                returned to a compliant state.
+            </p>
+
+
+            <div class="highlight">
+
+                <strong>
+                    Final result:
+                </strong>
+
+                The Ubuntu device successfully met the configured
+                device encryption compliance requirement and was
+                reported as compliant in Microsoft Intune.
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script>
+
+    /* =====================================
+       IMAGE CAROUSEL DATA
+    ====================================== */
+
+    const images = [
+
+        {
+            src: "images/01-initial-compliant-ubuntu.png",
+            alt: "Ubuntu device initially showing compliant status",
+            caption: "Initial Ubuntu Compliance"
+        },
+
+        {
+            src: "images/02-encryption-policy-created.png",
+            alt: "Linux Device Encryption policy created in Intune",
+            caption: "Linux Device Encryption Policy Created"
+        },
+
+        {
+            src: "images/03-encryption-policy-noncompliant.png",
+            alt: "Encryption requirement showing not compliant",
+            caption: "Encryption Requirement — Not Compliant"
+        },
+
+        {
+            src: "images/04-linux-device-noncompliant.png",
+            alt: "Linux device showing noncompliant status",
+            caption: "Linux Device — Noncompliant"
+        },
+
+        {
+            src: "images/05-ubuntu-noncompliant.png",
+            alt: "Ubuntu device showing compliance warning",
+            caption: "Ubuntu Device — Compliance Warning"
+        },
+
+        {
+            src: "images/06-encryption-remediation-required.png",
+            alt: "Ubuntu device showing encrypt your drives remediation requirement",
+            caption: "Encryption Remediation Required"
+        },
+
+        {
+            src: "images/07-intune-agent-encryption-remediation.gif",
+            alt: "Intune Agent encryption remediation process",
+            caption: "Intune Agent — Remediation"
+        },
+
+        {
+            src: "images/08-encryption-policy-compliant.png",
+            alt: "Linux encryption policy showing compliant status",
+            caption: "Encryption Policy — Compliant"
+        },
+
+        {
+            src: "images/09-linux-device-final-compliant.png",
+            alt: "Linux device showing final compliant status",
+            caption: "Final Linux Device — Compliant"
+        }
+
+    ];
+
+
+    /* =====================================
+       ELEMENTS
+    ====================================== */
+
+    const image =
+        document.getElementById("complianceImage");
+
+    const counter =
+        document.getElementById("imageCounter");
+
+    const caption =
+        document.getElementById("imageCaption");
+
+    const previousButton =
+        document.getElementById("previousButton");
+
+    const nextButton =
+        document.getElementById("nextButton");
+
+
+    let currentIndex = 0;
+
+
+    /* =====================================
+       UPDATE IMAGE
+    ====================================== */
+
+    function updateImage() {
+
+        const currentImage =
+            images[currentIndex];
+
+
+        image.src =
+            currentImage.src;
+
+        image.alt =
+            currentImage.alt;
+
+        caption.textContent =
+            currentImage.caption;
+
+        counter.textContent =
+            `${currentIndex + 1} / ${images.length}`;
+
+
+        /*
+         * Disable Previous button
+         * on first image
+         */
+
+        previousButton.disabled =
+            currentIndex === 0;
+
+
+        /*
+         * Disable Next button
+         * on final image
+         */
+
+        nextButton.disabled =
+            currentIndex === images.length - 1;
+    }
+
+
+    /* =====================================
+       NEXT
+    ====================================== */
+
+    nextButton.addEventListener(
+        "click",
+        function () {
+
+            if (
+                currentIndex <
+                images.length - 1
+            ) {
+
+                currentIndex++;
+
+                updateImage();
+            }
+
+        }
+    );
+
+
+    /* =====================================
+       PREVIOUS
+    ====================================== */
+
+    previousButton.addEventListener(
+        "click",
+        function () {
+
+            if (
+                currentIndex > 0
+            ) {
+
+                currentIndex--;
+
+                updateImage();
+            }
+
+        }
+    );
+
+
+    /* =====================================
+       INITIAL LOAD
+    ====================================== */
+
+    updateImage();
+
+</script>
+
+</body>
+</html>

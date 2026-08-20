@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>My Learning Path - Intune</title>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        body {
+            font-family:
+                "Segoe UI",
+                Arial,
+                sans-serif;
+
+            background: #05070a;
+
+            color: #ffffff;
+
+            min-height: 100vh;
+        }
+
+
+        /* =========================================
+           APPLICATION
+        ========================================= */
+
+        .app {
+            display: flex;
+
+            min-height: 100vh;
+
+            background: #05070a;
+        }
+
+
+        /* =========================================
+           SIDEBAR
+        ========================================= */
+
+        .sidebar {
+
+            width: 280px;
+
+            min-height: 100vh;
+
+            padding: 24px 18px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #061d73 0%,
+                    #0752a5 35%,
+                    #008a89 68%,
+                    #04a51e 100%
+                );
+
+            border-right:
+                1px solid
+                rgba(255,255,255,0.15);
+
+            box-shadow:
+                8px 0 35px
+                rgba(0,0,0,0.35);
+        }
+
+
+        /* =========================================
+           LOGO
+        ========================================= */
+
+        .logo-container {
+
+            width: 100%;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            margin-bottom: 28px;
+        }
+
+
+        .logo {
+
+            width: 225px;
+
+            height: 225px;
+
+            object-fit: contain;
+
+            filter:
+                drop-shadow(
+                    0 12px 25px
+                    rgba(0,0,0,0.35)
+                );
+        }
+
+
+        /* =========================================
+           SECTION TITLE
+        ========================================= */
+
+        .sidebar-section-title {
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            letter-spacing: 1px;
+
+            margin:
+                4px 0 10px 8px;
+
+            color:
+                rgba(255,255,255,0.75);
+
+            text-transform: uppercase;
+        }
+
+
+        /* =========================================
+           SIDEBAR BUTTONS
+        ========================================= */
+
+        .sidebar-button {
+
+            width: 100%;
+
+            min-height: 52px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 13px;
+
+            padding:
+                8px 13px;
+
+            margin-bottom: 7px;
+
+            border-radius: 10px;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.18);
+
+            background:
+                rgba(0,0,0,0.13);
+
+            color: #ffffff;
+
+            text-decoration: none;
+
+            transition:
+                all 0.25s ease;
+        }
+
+
+        .sidebar-button:hover {
+
+            transform:
+                translateX(3px);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(0,174,255,0.45),
+                    rgba(0,255,153,0.30)
+                );
+
+            border-color:
+                rgba(255,255,255,0.40);
+
+            box-shadow:
+                0 0 16px
+                rgba(0,210,255,0.16);
+        }
+
+
+        .sidebar-button.active {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(0,174,255,0.55),
+                    rgba(0,255,153,0.30)
+                );
+
+            border-color:
+                #00c8ff;
+
+            box-shadow:
+                0 0 18px
+                rgba(0,190,255,0.16);
+        }
+
+
+        .sidebar-icon {
+
+            width: 32px;
+
+            height: 32px;
+
+            flex-shrink: 0;
+
+            display: grid;
+
+            place-items: center;
+
+            border-radius: 8px;
+
+            background:
+                rgba(255,255,255,0.95);
+
+            color:
+                #0752a5;
+
+            font-size: 16px;
+
+            font-weight: 700;
+        }
+
+
+        .sidebar-text {
+
+            flex: 1;
+
+            font-size: 15px;
+
+            font-weight: 600;
+
+            line-height: 1.25;
+        }
+
+
+        .sidebar-arrow {
+
+            font-size: 22px;
+
+            color:
+                rgba(255,255,255,0.80);
+        }
+
+
+        /* =========================================
+           SIDEBAR SEPARATOR
+        ========================================= */
+
+        .separator {
+
+            height: 1px;
+
+            margin:
+                12px 4px 14px;
+
+            background:
+                rgba(255,255,255,0.18);
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        .sidebar-footer {
+
+            margin-top: auto;
+
+            padding-top: 20px;
+
+            border-top:
+                1px solid
+                rgba(255,255,255,0.20);
+
+            text-align: center;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+
+            color:
+                rgba(255,255,255,0.90);
+        }
+
+
+        /* =========================================
+           MAIN CONTENT
+        ========================================= */
+
+        .main-content {
+
+            flex: 1;
+
+            min-width: 0;
+
+            padding:
+                40px 48px;
+
+            background:
+                radial-gradient(
+                    circle at 75% 10%,
+                    rgba(0,110,255,0.07),
+                    transparent 35%
+                ),
+                #05070a;
+        }
+
+
+        /* =========================================
+           PAGE HEADER
+        ========================================= */
+
+        .page-header {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 13px;
+
+            font-size: 30px;
+
+            font-weight: 600;
+
+            padding-bottom: 26px;
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,0.12);
+        }
+
+
+        .page-icon {
+
+            color:
+                #00d9ff;
+
+            font-size: 31px;
+        }
+
+
+        .page-title-intune {
+
+            color: #ffffff;
+        }
+
+
+        .page-title-separator {
+
+            color:
+                rgba(255,255,255,0.35);
+
+            font-weight: 300;
+        }
+
+
+        .page-title-section {
+
+            color:
+                #119cff;
+        }
+
+
+        /* =========================================
+           HERO
+        ========================================= */
+
+        .hero {
+
+            padding:
+                38px 0 30px;
+        }
+
+
+        .hero h1 {
+
+            font-size:
+                clamp(38px, 4vw, 54px);
+
+            line-height: 1.08;
+
+            margin-bottom: 14px;
+
+            font-weight: 700;
+        }
+
+
+        .hero h1 .blue {
+
+            color:
+                #119cff;
+        }
+
+
+        .hero h1 .green {
+
+            color:
+                #39e600;
+        }
+
+
+        .hero p {
+
+            max-width: 850px;
+
+            font-size: 18px;
+
+            line-height: 1.6;
+
+            color:
+                rgba(255,255,255,0.72);
+        }
+
+
+        /* =========================================
+           OVERVIEW CONTENT
+        ========================================= */
+
+        .content-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1fr)
+                310px;
+
+            gap: 28px;
+
+            max-width: 1050px;
+        }
+
+
+        /* =========================================
+           MAIN NOTE CARD
+        ========================================= */
+
+        .note-card {
+
+            padding:
+                28px 30px;
+
+            border-radius: 15px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(12,20,30,0.96),
+                    rgba(5,9,13,0.98)
+                );
+
+            border:
+                1px solid
+                rgba(0,183,255,0.65);
+
+            box-shadow:
+                0 0 25px
+                rgba(0,183,255,0.06);
+        }
+
+
+        .note-card h2 {
+
+            font-size: 25px;
+
+            margin-bottom: 14px;
+
+            color:
+                #ffffff;
+        }
+
+
+        .note-card p {
+
+            font-size: 16px;
+
+            line-height: 1.7;
+
+            color:
+                rgba(255,255,255,0.72);
+
+            margin-bottom: 14px;
+        }
+
+
+        .note-card p:last-child {
+
+            margin-bottom: 0;
+        }
+
+
+        /* =========================================
+           HIGHLIGHT
+        ========================================= */
+
+        .highlight {
+
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 12px;
+
+            margin-top: 22px;
+
+            padding:
+                16px 18px;
+
+            border-radius: 10px;
+
+            background:
+                rgba(0,174,255,0.08);
+
+            border:
+                1px solid
+                rgba(0,183,255,0.35);
+        }
+
+
+        .highlight-icon {
+
+            color:
+                #00d9ff;
+
+            font-size: 21px;
+        }
+
+
+        .highlight-text {
+
+            font-size: 15px;
+
+            line-height: 1.5;
+
+            color:
+                rgba(255,255,255,0.75);
+        }
+
+
+        /* =========================================
+           TOPICS CARD
+        ========================================= */
+
+        .topics-card {
+
+            padding:
+                24px 22px;
+
+            border-radius: 15px;
+
+            background:
+                linear-gradient(
+                    160deg,
+                    rgba(12,20,30,0.98),
+                    rgba(5,9,13,0.98)
+                );
+
+            border:
+                1px solid
+                rgba(57,255,20,0.30);
+
+            box-shadow:
+                0 0 25px
+                rgba(57,255,20,0.04);
+        }
+
+
+        .topics-card h2 {
+
+            font-size: 21px;
+
+            margin-bottom: 18px;
+
+            color:
+                #39ff14;
+        }
+
+
+        .topic-item {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 11px;
+
+            padding:
+                11px 10px;
+
+            margin-bottom: 7px;
+
+            border-radius: 8px;
+
+            background:
+                rgba(255,255,255,0.035);
+
+            color:
+                rgba(255,255,255,0.75);
+
+            font-size: 14px;
+        }
+
+
+        .topic-dot {
+
+            width: 7px;
+
+            height: 7px;
+
+            flex-shrink: 0;
+
+            border-radius: 50%;
+
+            background:
+                #00c8ff;
+
+            box-shadow:
+                0 0 8px
+                rgba(0,200,255,0.6);
+        }
+
+
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
+
+        @media (max-width: 1000px) {
+
+            .content-grid {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+        }
+
+
+        @media (max-width: 800px) {
+
+            .sidebar {
+
+                width: 240px;
+            }
+
+            .logo {
+
+                width: 195px;
+
+                height: 195px;
+            }
+
+            .main-content {
+
+                padding:
+                    30px;
+            }
+        }
+
+
+        @media (max-width: 650px) {
+
+            .app {
+
+                flex-direction:
+                    column;
+            }
+
+
+            .sidebar {
+
+                width: 100%;
+
+                min-height:
+                    auto;
+            }
+
+
+            .logo {
+
+                width: 170px;
+
+                height: 170px;
+            }
+
+
+            .sidebar-footer {
+
+                margin-top: 25px;
+            }
+
+
+            .main-content {
+
+                padding:
+                    25px 20px;
+            }
+
+
+            .page-header {
+
+                font-size: 24px;
+            }
+
+
+            .hero h1 {
+
+                font-size: 38px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="app">
+
+
+    <!-- =====================================
+         INTUNE SIDEBAR
+    ====================================== -->
+
+    <aside class="sidebar">
+
+
+        <!-- LOGO -->
+
+        <div class="logo-container">
+
+            <img
+                src="../learning-path-logo.png"
+                alt="My Learning Path"
+                class="logo"
+            >
+
+        </div>
+
+
+        <!-- HOME -->
+
+        <div class="sidebar-section-title">
+            Navigation
+        </div>
+
+
+        <a
+            href="../index.html"
+            class="sidebar-button"
+        >
+
+            <div class="sidebar-icon">
+                ⌂
+            </div>
+
+            <div class="sidebar-text">
+                Home
+            </div>
+
+            <div class="sidebar-arrow">
+                ‹
+            </div>
+
+        </a>
+
+
+        <div class="separator"></div>
+
+
+        <!-- INTUNE TOPICS -->
+
+        <div class="sidebar-section-title">
+            Intune
+        </div>
+
+
+        <!-- OVERVIEW -->
+
+        <a
+            href="intune.html"
+            class="sidebar-button active"
+        >
+
+            <div class="sidebar-icon">
+                ▣
+            </div>
+
+            <div class="sidebar-text">
+                Overview
+            </div>
+
+            <div class="sidebar-arrow">
+                ›
+            </div>
+
+        </a>
+
+
+        <!-- COMPANY BRANDING -->
+
+        <a
+            href="company-branding.html"
+            class="sidebar-button"
+        >
+
+            <div class="sidebar-icon">
+                ◈
+            </div>
+
+            <div class="sidebar-text">
+                Company Branding
+            </div>
+
+            <div class="sidebar-arrow">
+                ›
+            </div>
+
+        </a>
+
+
+        <!-- WINDOWS ENROLLMENT -->
+
+        <a
+            href="windows-enrollment.html"
+            class="sidebar-button"
+        >
+
+            <div class="sidebar-icon">
+                ▣
+            </div>
+
+            <div class="sidebar-text">
+                Windows Enrollment
+            </div>
+
+            <div class="sidebar-arrow">
+                ›
+            </div>
+
+        </a>
+
+
+        <!-- LINUX ENROLLMENT -->
+
+        <a
+            href="linux-enrollment.html"
+            class="sidebar-button"
+        >
+
+            <div class="sidebar-icon">
+                ◉
+            </div>
+
+            <div class="sidebar-text">
+                Linux / Ubuntu Enrollment
+            </div>
+
+            <div class="sidebar-arrow">
+                ›
+            </div>
+
+        </a>
+
+
+        <!-- LINUX COMPLIANCE -->
+
+        <a
+            href="linux-compliance.html"
+            class="sidebar-button"
+        >
+
+            <div class="sidebar-icon">
+                ✓
+            </div>
+
+            <div class="sidebar-text">
+                Linux / Ubuntu Compliance
+            </div>
+
+            <div class="sidebar-arrow">
+                ›
+            </div>
+
+        </a>
+
+
+        <!-- FOOTER -->
+
+        <div class="sidebar-footer">
+
+            © 2026 My Learning Path.<br>
+
+            All Rights Reserved.
+
+        </div>
+
+
+    </aside>
+
+
+    <!-- =====================================
+         MAIN CONTENT
+    ====================================== -->
+
+    <main class="main-content">
+
+
+        <!-- PAGE HEADER -->
+
+        <div class="page-header">
+
+            <span class="page-icon">
+                ▣
+            </span>
+
+            <span class="page-title-intune">
+                Intune
+            </span>
+
+            <span class="page-title-separator">
+                /
+            </span>
+
+            <span class="page-title-section">
+                Overview
+            </span>
+
+        </div>
+
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <h1>
+
+                My
+                <span class="blue">
+                    Intune
+                </span>
+                <span class="green">
+                    Labs
+                </span>
+
+            </h1>
+
+
+            <p>
+
+                A collection of hands-on Microsoft Intune
+                labs, configurations, experiments, and topics
+                explored as part of my learning journey.
+
+            </p>
+
+        </section>
+
+
+        <!-- CONTENT -->
+
+        <section class="content-grid">
+
+
+            <!-- MAIN NOTE -->
+
+            <div class="note-card">
+
+
+                <h2>
+                    Intune Overview
+                </h2>
+
+
+                <p>
+
+                    This section documents the Microsoft Intune
+                    work I have completed through hands-on labs
+                    and practical experimentation.
+
+                </p>
+
+
+                <p>
+
+                    The notes capture configurations,
+                    enrollment activities, compliance testing,
+                    observations, screenshots, and results from
+                    the labs.
+
+                </p>
+
+
+                <div class="highlight">
+
+                    <div class="highlight-icon">
+                        ●
+                    </div>
+
+                    <div class="highlight-text">
+
+                        These pages document my own lab work
+                        and learning progress rather than
+                        serving as an online training course.
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- TOPICS -->
+
+            <div class="topics-card">
+
+
+                <h2>
+                    Topics Explored
+                </h2>
+
+
+                <div class="topic-item">
+
+                    <span class="topic-dot"></span>
+
+                    Company Branding
+
+                </div>
+
+
+                <div class="topic-item">
+
+                    <span class="topic-dot"></span>
+
+                    Windows Enrollment
+
+                </div>
+
+
+                <div class="topic-item">
+
+                    <span class="topic-dot"></span>
+
+                    Linux / Ubuntu Enrollment
+
+                </div>
+
+
+                <div class="topic-item">
+
+                    <span class="topic-dot"></span>
+
+                    Linux / Ubuntu Compliance
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+</div>
+
+
+</body>
+</html>

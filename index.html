@@ -23,7 +23,7 @@
 
         /* =========================
            APPLICATION
-        ========================= */
+        ========================== */
 
         .app {
             display: flex;
@@ -33,7 +33,7 @@
 
         /* =========================
            SIDEBAR
-        ========================= */
+        ========================== */
 
         .sidebar {
             width: 295px;
@@ -61,7 +61,7 @@
 
         /* =========================
            LOGO
-        ========================= */
+        ========================== */
 
         .logo-container {
             width: 100%;
@@ -87,7 +87,7 @@
 
         /* =========================
            MENU
-        ========================= */
+        ========================== */
 
         .menu-title {
             font-size: 15px;
@@ -180,7 +180,7 @@
 
         /* =========================
            SIDEBAR FOOTER
-        ========================= */
+        ========================== */
 
         .sidebar-footer {
             margin-top: auto;
@@ -200,7 +200,7 @@
 
         /* =========================
            MAIN CONTENT
-        ========================= */
+        ========================== */
 
         .main-content {
             flex: 1;
@@ -219,7 +219,7 @@
 
         /* =========================
            PAGE HEADER
-        ========================= */
+        ========================== */
 
         .page-header {
             display: flex;
@@ -243,10 +243,10 @@
 
         /* =========================
            HERO
-        ========================= */
+        ========================== */
 
         .hero {
-            padding: 40px 0 30px;
+            padding: 40px 0 28px;
         }
 
         .hero h1 {
@@ -276,7 +276,7 @@
 
         /* =========================
            LEARNING CARDS
-        ========================= */
+        ========================== */
 
         .cards {
             width: 100%;
@@ -288,12 +288,14 @@
             width: 100%;
             max-width: 780px;
 
-            min-height: 205px;
+            /* Reduced from 205px */
+            min-height: 145px;
 
             display: flex;
             align-items: center;
 
-            padding: 28px 34px;
+            /* Reduced internal spacing */
+            padding: 20px 28px;
 
             border-radius: 16px;
 
@@ -361,11 +363,11 @@
 
         /* =========================
            INTUNE ICON
-        ========================= */
+        ========================== */
 
         .card-icon {
-            width: 115px;
-            height: 115px;
+            width: 90px;
+            height: 90px;
 
             flex-shrink: 0;
 
@@ -373,9 +375,9 @@
             align-items: center;
             justify-content: center;
 
-            margin-right: 32px;
+            margin-right: 28px;
 
-            border-radius: 18px;
+            border-radius: 16px;
 
             background:
                 radial-gradient(
@@ -388,18 +390,18 @@
         .intune-icon {
             position: relative;
 
-            width: 82px;
-            height: 72px;
+            width: 68px;
+            height: 60px;
         }
 
         .screen-one,
         .screen-two {
             position: absolute;
 
-            width: 55px;
-            height: 55px;
+            width: 46px;
+            height: 46px;
 
-            border-radius: 8px;
+            border-radius: 7px;
 
             background:
                 linear-gradient(
@@ -428,8 +430,8 @@
 
             position: absolute;
 
-            width: 18px;
-            height: 18px;
+            width: 15px;
+            height: 15px;
 
             border-radius: 50%;
 
@@ -445,22 +447,22 @@
 
         /* =========================
            CARD CONTENT
-        ========================= */
+        ========================== */
 
         .card-content {
             flex: 1;
         }
 
         .card-content h2 {
-            font-size: 30px;
+            font-size: 28px;
 
-            margin-bottom: 10px;
+            margin-bottom: 7px;
         }
 
         .card-content p {
-            font-size: 17px;
+            font-size: 16px;
 
-            line-height: 1.5;
+            line-height: 1.4;
 
             color:
                 rgba(255,255,255,0.68);
@@ -469,13 +471,13 @@
         }
 
         .card-arrow {
-            font-size: 48px;
+            font-size: 42px;
 
             font-weight: 300;
 
             color: #39ff14;
 
-            margin-left: 20px;
+            margin-left: 18px;
 
             transition:
                 transform 0.25s ease;
@@ -488,7 +490,7 @@
 
         /* =========================
            RESPONSIVE
-        ========================= */
+        ========================== */
 
         @media (max-width: 900px) {
 
@@ -543,17 +545,17 @@
 
                 text-align: center;
 
-                padding: 30px;
+                padding: 25px;
             }
 
             .card-icon {
                 margin:
-                    0 0 20px;
+                    0 0 15px;
             }
 
             .card-arrow {
                 margin:
-                    18px 0 0;
+                    15px 0 0;
             }
         }
 
@@ -700,6 +702,7 @@
                 <div class="card-arrow">
                     →
                 </div>
+
 
             </a>
 

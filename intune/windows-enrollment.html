@@ -1,0 +1,1506 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>My Learning Path - Windows Enrollment</title>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        body {
+            font-family:
+                "Segoe UI",
+                Arial,
+                sans-serif;
+
+            background: #05070a;
+
+            color: #ffffff;
+
+            min-height: 100vh;
+        }
+
+
+        /* =========================================
+           APPLICATION
+        ========================================= */
+
+        .app {
+            display: flex;
+
+            min-height: 100vh;
+
+            background: #05070a;
+        }
+
+
+        /* =========================================
+           SIDEBAR
+        ========================================= */
+
+        .sidebar {
+
+            width: 280px;
+
+            min-height: 100vh;
+
+            padding: 24px 18px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #061d73 0%,
+                    #0752a5 35%,
+                    #008a89 68%,
+                    #04a51e 100%
+                );
+
+            border-right:
+                1px solid
+                rgba(255,255,255,0.15);
+
+            box-shadow:
+                8px 0 35px
+                rgba(0,0,0,0.35);
+        }
+
+
+        /* =========================================
+           LOGO
+        ========================================= */
+
+        .logo-container {
+
+            width: 100%;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            margin-bottom: 28px;
+        }
+
+
+        .logo {
+
+            width: 225px;
+
+            height: 225px;
+
+            object-fit: contain;
+
+            filter:
+                drop-shadow(
+                    0 12px 25px
+                    rgba(0,0,0,0.35)
+                );
+        }
+
+
+        /* =========================================
+           SIDEBAR SECTION TITLE
+        ========================================= */
+
+        .sidebar-section-title {
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            letter-spacing: 1px;
+
+            margin:
+                4px 0 10px 8px;
+
+            color:
+                rgba(255,255,255,0.75);
+
+            text-transform: uppercase;
+        }
+
+
+        /* =========================================
+           SIDEBAR BUTTONS
+        ========================================= */
+
+        .sidebar-button {
+
+            width: 100%;
+
+            min-height: 52px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 13px;
+
+            padding:
+                8px 13px;
+
+            margin-bottom: 7px;
+
+            border-radius: 10px;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.18);
+
+            background:
+                rgba(0,0,0,0.13);
+
+            color: #ffffff;
+
+            text-decoration: none;
+
+            transition:
+                all 0.25s ease;
+        }
+
+
+        .sidebar-button:hover {
+
+            transform:
+                translateX(3px);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(0,174,255,0.45),
+                    rgba(0,255,153,0.30)
+                );
+
+            border-color:
+                rgba(255,255,255,0.40);
+
+            box-shadow:
+                0 0 16px
+                rgba(0,210,255,0.16);
+        }
+
+
+        .sidebar-button.active {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(0,174,255,0.55),
+                    rgba(0,255,153,0.30)
+                );
+
+            border-color:
+                #00c8ff;
+
+            box-shadow:
+                0 0 18px
+                rgba(0,190,255,0.16);
+        }
+
+
+        .sidebar-icon {
+
+            width: 32px;
+
+            height: 32px;
+
+            flex-shrink: 0;
+
+            display: grid;
+
+            place-items: center;
+
+            border-radius: 8px;
+
+            background:
+                rgba(255,255,255,0.95);
+
+            color:
+                #0752a5;
+
+            font-size: 16px;
+
+            font-weight: 700;
+        }
+
+
+        .sidebar-text {
+
+            flex: 1;
+
+            font-size: 15px;
+
+            font-weight: 600;
+
+            line-height: 1.25;
+        }
+
+
+        .sidebar-arrow {
+
+            font-size: 22px;
+
+            color:
+                rgba(255,255,255,0.80);
+        }
+
+
+        /* =========================================
+           SEPARATOR
+        ========================================= */
+
+        .separator {
+
+            height: 1px;
+
+            margin:
+                12px 4px 14px;
+
+            background:
+                rgba(255,255,255,0.18);
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        .sidebar-footer {
+
+            margin-top: auto;
+
+            padding-top: 20px;
+
+            border-top:
+                1px solid
+                rgba(255,255,255,0.20);
+
+            text-align: center;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+
+            color:
+                rgba(255,255,255,0.90);
+        }
+
+
+        /* =========================================
+           MAIN CONTENT
+        ========================================= */
+
+        .main-content {
+
+            flex: 1;
+
+            min-width: 0;
+
+            padding:
+                40px 48px;
+
+            background:
+                radial-gradient(
+                    circle at 75% 10%,
+                    rgba(0,110,255,0.07),
+                    transparent 35%
+                ),
+                #05070a;
+        }
+
+
+        /* =========================================
+           PAGE HEADER
+        ========================================= */
+
+        .page-header {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 13px;
+
+            font-size: 30px;
+
+            font-weight: 600;
+
+            padding-bottom: 26px;
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,0.12);
+        }
+
+
+        .page-icon {
+
+            color:
+                #00d9ff;
+
+            font-size: 31px;
+        }
+
+
+        .page-title-intune {
+
+            color:
+                #ffffff;
+        }
+
+
+        .page-title-separator {
+
+            color:
+                rgba(255,255,255,0.35);
+
+            font-weight: 300;
+        }
+
+
+        .page-title-section {
+
+            color:
+                #119cff;
+        }
+
+
+        /* =========================================
+           CONTENT
+        ========================================= */
+
+        .content {
+
+            max-width: 1050px;
+
+            padding-top: 38px;
+        }
+
+
+        /* =========================================
+           TITLE
+        ========================================= */
+
+        .content-title {
+
+            font-size:
+                clamp(36px, 4vw, 52px);
+
+            line-height: 1.1;
+
+            margin-bottom: 12px;
+
+            font-weight: 700;
+        }
+
+
+        .content-title .blue {
+
+            color:
+                #119cff;
+        }
+
+
+        .content-subtitle {
+
+            font-size: 18px;
+
+            line-height: 1.6;
+
+            color:
+                rgba(255,255,255,0.70);
+
+            margin-bottom: 30px;
+
+            max-width: 850px;
+        }
+
+
+        /* =========================================
+           SCREENSHOT CARD
+        ========================================= */
+
+        .image-card {
+
+            width: 100%;
+
+            max-width: 1050px;
+
+            padding: 24px;
+
+            margin-bottom: 28px;
+
+            border-radius: 15px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(12,20,30,0.96),
+                    rgba(5,9,13,0.98)
+                );
+
+            border:
+                1px solid
+                rgba(0,183,255,0.55);
+
+            box-shadow:
+                0 0 25px
+                rgba(0,183,255,0.06);
+        }
+
+
+        .image-card img {
+
+            display: block;
+
+            width: 100%;
+
+            max-width: 100%;
+
+            height: auto;
+
+            border-radius: 8px;
+
+            box-shadow:
+                0 10px 30px
+                rgba(0,0,0,0.35);
+        }
+
+
+        .image-caption {
+
+            margin-top: 14px;
+
+            font-size: 14px;
+
+            color:
+                rgba(255,255,255,0.55);
+
+            text-align: center;
+        }
+
+
+        /* =========================================
+           NOTE CARD
+        ========================================= */
+
+        .note-card {
+
+            width: 100%;
+
+            max-width: 1050px;
+
+            padding:
+                28px 30px;
+
+            margin-bottom: 24px;
+
+            border-radius: 15px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(12,20,30,0.96),
+                    rgba(5,9,13,0.98)
+                );
+
+            border:
+                1px solid
+                rgba(0,183,255,0.40);
+        }
+
+
+        .note-card h2 {
+
+            font-size: 25px;
+
+            margin-bottom: 16px;
+
+            color:
+                #ffffff;
+        }
+
+
+        .note-card p {
+
+            font-size: 16px;
+
+            line-height: 1.7;
+
+            color:
+                rgba(255,255,255,0.72);
+
+            margin-bottom: 14px;
+        }
+
+
+        .note-card p:last-child {
+
+            margin-bottom: 0;
+        }
+
+
+        /* =========================================
+           DEVICE TABLE
+        ========================================= */
+
+        .table-wrapper {
+
+            width: 100%;
+
+            overflow-x: auto;
+
+            margin-top: 8px;
+        }
+
+
+        .device-table {
+
+            width: 100%;
+
+            border-collapse: collapse;
+
+            min-width: 700px;
+        }
+
+
+        .device-table th {
+
+            padding:
+                13px 14px;
+
+            text-align: left;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            color:
+                #00d9ff;
+
+            background:
+                rgba(0,174,255,0.08);
+
+            border-bottom:
+                1px solid
+                rgba(0,183,255,0.30);
+        }
+
+
+        .device-table td {
+
+            padding:
+                13px 14px;
+
+            font-size: 14px;
+
+            color:
+                rgba(255,255,255,0.75);
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,0.07);
+        }
+
+
+        .device-table tr:last-child td {
+
+            border-bottom: none;
+        }
+
+
+        .device-name {
+
+            color: #ffffff;
+
+            font-weight: 600;
+        }
+
+
+        .compliant {
+
+            color:
+                #39ff14;
+
+            font-weight: 600;
+        }
+
+
+        /* =========================================
+           OBSERVATIONS
+        ========================================= */
+
+        .observations {
+
+            list-style: none;
+
+            margin-top: 5px;
+        }
+
+
+        .observations li {
+
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 12px;
+
+            padding:
+                11px 0;
+
+            font-size: 16px;
+
+            line-height: 1.55;
+
+            color:
+                rgba(255,255,255,0.75);
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,0.06);
+        }
+
+
+        .observations li:last-child {
+
+            border-bottom: none;
+        }
+
+
+        .check {
+
+            flex-shrink: 0;
+
+            color:
+                #39ff14;
+
+            font-size: 18px;
+
+            font-weight: bold;
+        }
+
+
+        /* =========================================
+           RESULT CARD
+        ========================================= */
+
+        .result-card {
+
+            width: 100%;
+
+            max-width: 1050px;
+
+            padding:
+                25px 28px;
+
+            margin-bottom: 24px;
+
+            border-radius: 15px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(0,130,90,0.12),
+                    rgba(5,20,15,0.96)
+                );
+
+            border:
+                1px solid
+                rgba(57,255,20,0.35);
+        }
+
+
+        .result-card h2 {
+
+            font-size: 23px;
+
+            margin-bottom: 12px;
+
+            color:
+                #39ff14;
+        }
+
+
+        .result-card p {
+
+            font-size: 17px;
+
+            line-height: 1.7;
+
+            color:
+                rgba(255,255,255,0.78);
+        }
+
+
+        .status {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            margin-top: 18px;
+
+            padding:
+                9px 15px;
+
+            border-radius: 8px;
+
+            background:
+                rgba(57,255,20,0.10);
+
+            border:
+                1px solid
+                rgba(57,255,20,0.35);
+
+            color:
+                #39ff14;
+
+            font-size: 15px;
+
+            font-weight: 600;
+        }
+
+
+        /* =========================================
+           LAB NOTE
+        ========================================= */
+
+        .lab-note {
+
+            width: 100%;
+
+            max-width: 1050px;
+
+            padding:
+                20px 24px;
+
+            border-left:
+                3px solid
+                #00c8ff;
+
+            border-radius:
+                0 10px 10px 0;
+
+            background:
+                rgba(0,174,255,0.07);
+
+            color:
+                rgba(255,255,255,0.70);
+
+            font-size: 15px;
+
+            line-height: 1.6;
+        }
+
+
+        .lab-note strong {
+
+            color:
+                #00d9ff;
+        }
+
+
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
+
+        @media (max-width: 800px) {
+
+            .sidebar {
+
+                width: 240px;
+            }
+
+
+            .logo {
+
+                width: 195px;
+
+                height: 195px;
+            }
+
+
+            .main-content {
+
+                padding: 30px;
+            }
+        }
+
+
+        @media (max-width: 650px) {
+
+            .app {
+
+                flex-direction:
+                    column;
+            }
+
+
+            .sidebar {
+
+                width: 100%;
+
+                min-height:
+                    auto;
+            }
+
+
+            .logo {
+
+                width: 170px;
+
+                height: 170px;
+            }
+
+
+            .sidebar-footer {
+
+                margin-top: 25px;
+            }
+
+
+            .main-content {
+
+                padding:
+                    25px 20px;
+            }
+
+
+            .page-header {
+
+                font-size: 23px;
+
+                flex-wrap: wrap;
+            }
+
+
+            .content-title {
+
+                font-size: 38px;
+            }
+
+
+            .image-card {
+
+                padding: 14px;
+            }
+
+
+            .note-card,
+            .result-card {
+
+                padding:
+                    22px 20px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="app">
+
+
+    <!-- =====================================
+         SIDEBAR
+    ====================================== -->
+
+    <aside class="sidebar">
+
+
+        <!-- LOGO -->
+
+        <div class="logo-container">
+
+            <img
+                src="../learning-path-logo.png"
+                alt="My Learning Path"
+                class="logo"
+            >
+
+        </div>
+
+
+        <!-- NAVIGATION -->
+
+        <div class="sidebar-section-title">
+            Navigation
+        </div>
+
+
+        <!-- HOME -->
+
+        <a
+            href="../index.html"
+            class="sidebar-button"
+        >
+
+            <div class="sidebar-icon">
+                ⌂
+            </div>
+
+            <div class="sidebar-text">
+                Home
+            </div>
+
+            <div class="sidebar-arrow">
+                ‹
+            </div>
+
+        </a>
+
+
+        <div class="separator"></div>
+
+
+        <!-- INTUNE -->
+
+        <div class="sidebar-section-title">
+            Intune
+        </div>
+
+
+        <!-- OVERVIEW -->
+
+        <a
+            href="intune.html"
+            class="sidebar-button"
+        >
+
+            <div class="sidebar-icon">
+                ▣
+            </div>
+
+            <div class="sidebar-text">
+                Overview
+            </div>
+
+            <div class="sidebar-arrow">
+                ›
+            </div>
+
+        </a>
+
+
+        <!-- COMPANY BRANDING -->
+
+        <a
+            href="company-branding.html"
+            class="sidebar-button"
+        >
+
+            <div class="sidebar-icon">
+                ◈
+            </div>
+
+            <div class="sidebar-text">
+                Company Branding
+            </div>
+
+            <div class="sidebar-arrow">
+                ›
+            </div>
+
+        </a>
+
+
+        <!-- WINDOWS ENROLLMENT -->
+
+        <a
+            href="windows-enrollment.html"
+            class="sidebar-button active"
+        >
+
+            <div class="sidebar-icon">
+                ▣
+            </div>
+
+            <div class="sidebar-text">
+                Windows Enrollment
+            </div>
+
+            <div class="sidebar-arrow">
+                ›
+            </div>
+
+        </a>
+
+
+        <!-- LINUX ENROLLMENT -->
+
+        <a
+            href="linux-enrollment.html"
+            class="sidebar-button"
+        >
+
+            <div class="sidebar-icon">
+                ◉
+            </div>
+
+            <div class="sidebar-text">
+                Linux / Ubuntu Enrollment
+            </div>
+
+            <div class="sidebar-arrow">
+                ›
+            </div>
+
+        </a>
+
+
+        <!-- LINUX COMPLIANCE -->
+
+        <a
+            href="linux-compliance.html"
+            class="sidebar-button"
+        >
+
+            <div class="sidebar-icon">
+                ✓
+            </div>
+
+            <div class="sidebar-text">
+                Linux / Ubuntu Compliance
+            </div>
+
+            <div class="sidebar-arrow">
+                ›
+            </div>
+
+        </a>
+
+
+        <!-- FOOTER -->
+
+        <div class="sidebar-footer">
+
+            © 2026 My Learning Path.<br>
+
+            All Rights Reserved.
+
+        </div>
+
+
+    </aside>
+
+
+    <!-- =====================================
+         MAIN CONTENT
+    ====================================== -->
+
+    <main class="main-content">
+
+
+        <!-- PAGE HEADER -->
+
+        <div class="page-header">
+
+            <span class="page-icon">
+                ▣
+            </span>
+
+            <span class="page-title-intune">
+                Intune
+            </span>
+
+            <span class="page-title-separator">
+                /
+            </span>
+
+            <span class="page-title-section">
+                Windows Enrollment
+            </span>
+
+        </div>
+
+
+        <!-- CONTENT -->
+
+        <section class="content">
+
+
+            <!-- TITLE -->
+
+            <h1 class="content-title">
+
+                Windows
+                <span class="blue">
+                    Device Enrollment
+                </span>
+
+            </h1>
+
+
+            <p class="content-subtitle">
+
+                Hands-on lab documenting the enrollment and
+                verification of Windows devices in Microsoft
+                Intune.
+
+            </p>
+
+
+            <!-- SCREENSHOT -->
+
+            <div class="image-card">
+
+                <img
+                    src="images/windows-enrollment.png"
+                    alt="Windows devices enrolled in Microsoft Intune"
+                >
+
+                <div class="image-caption">
+
+                    Windows devices visible under
+                    Microsoft Intune → Devices → Windows devices.
+
+                </div>
+
+            </div>
+
+
+            <!-- OVERVIEW -->
+
+            <div class="note-card">
+
+
+                <h2>
+                    Overview
+                </h2>
+
+
+                <p>
+
+                    Successfully enrolled
+                    <strong>two Windows devices</strong>
+                    in Microsoft Intune with different
+                    ownership types.
+
+                </p>
+
+
+                <div class="table-wrapper">
+
+                    <table class="device-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Device
+                                </th>
+
+                                <th>
+                                    Managed By
+                                </th>
+
+                                <th>
+                                    Ownership
+                                </th>
+
+                                <th>
+                                    Compliance
+                                </th>
+
+                                <th>
+                                    OS
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            <tr>
+
+                                <td class="device-name">
+                                    BYOD-LAB-OCarter
+                                </td>
+
+                                <td>
+                                    Intune
+                                </td>
+
+                                <td>
+                                    Personal
+                                </td>
+
+                                <td class="compliant">
+                                    ✓ Compliant
+                                </td>
+
+                                <td>
+                                    Windows
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td class="device-name">
+                                    CORP-LAB-EMiller
+                                </td>
+
+                                <td>
+                                    Intune
+                                </td>
+
+                                <td>
+                                    Corporate
+                                </td>
+
+                                <td class="compliant">
+                                    ✓ Compliant
+                                </td>
+
+                                <td>
+                                    Windows
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- ENROLLMENT VERIFICATION -->
+
+            <div class="note-card">
+
+
+                <h2>
+                    Enrollment Verification
+                </h2>
+
+
+                <p>
+
+                    The devices are visible under
+                    <strong>
+                        Microsoft Intune → Devices →
+                        Windows devices
+                    </strong>.
+
+                </p>
+
+
+                <p>
+
+                    The Intune console identifies the
+                    ownership type, operating system,
+                    OS version, primary user, compliance
+                    status, and device check-in information.
+
+                </p>
+
+
+            </div>
+
+
+            <!-- KEY OBSERVATIONS -->
+
+            <div class="note-card">
+
+
+                <h2>
+                    Key Observations
+                </h2>
+
+
+                <ul class="observations">
+
+
+                    <li>
+
+                        <span class="check">
+                            ✓
+                        </span>
+
+                        <span>
+                            Both Windows devices are
+                            successfully enrolled and
+                            managed by <strong>Intune</strong>.
+                        </span>
+
+                    </li>
+
+
+                    <li>
+
+                        <span class="check">
+                            ✓
+                        </span>
+
+                        <span>
+                            <strong>BYOD-LAB-OCarter</strong>
+                            is registered as a
+                            <strong>Personal</strong>
+                            device, representing the
+                            BYOD scenario.
+                        </span>
+
+                    </li>
+
+
+                    <li>
+
+                        <span class="check">
+                            ✓
+                        </span>
+
+                        <span>
+                            <strong>CORP-LAB-EMiller</strong>
+                            is registered as a
+                            <strong>Corporate</strong>
+                            device, representing the
+                            company-owned scenario.
+                        </span>
+
+                    </li>
+
+
+                    <li>
+
+                        <span class="check">
+                            ✓
+                        </span>
+
+                        <span>
+                            Both devices show a
+                            <strong>Compliant</strong>
+                            status.
+                        </span>
+
+                    </li>
+
+
+                    <li>
+
+                        <span class="check">
+                            ✓
+                        </span>
+
+                        <span>
+                            The devices are reporting
+                            recent <strong>Last check-in</strong>
+                            times to Intune.
+                        </span>
+
+                    </li>
+
+
+                    <li>
+
+                        <span class="check">
+                            ✓
+                        </span>
+
+                        <span>
+                            The Intune console successfully
+                            identifies the ownership type,
+                            operating system, OS version,
+                            primary user, and device
+                            check-in status.
+                        </span>
+
+                    </li>
+
+
+                </ul>
+
+
+            </div>
+
+
+            <!-- RESULT -->
+
+            <div class="result-card">
+
+
+                <h2>
+                    Result
+                </h2>
+
+
+                <p>
+
+                    Windows device enrollment was successfully
+                    completed for both Corporate and BYOD devices.
+
+                </p>
+
+
+                <div class="status">
+
+                    ✓
+
+                    Successfully Completed
+
+                </div>
+
+
+            </div>
+
+
+            <!-- LAB NOTE -->
+
+            <div class="lab-note">
+
+                <strong>Lab Note:</strong>
+
+                This lab demonstrates how Microsoft Intune can
+                enroll, identify, manage, and monitor Windows
+                devices with different ownership types from a
+                centralized administration portal.
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+</div>
+
+
+</body>
+</html>

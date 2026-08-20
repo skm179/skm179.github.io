@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>My Learning Path</title>
+
 
     <style>
 
@@ -14,34 +21,51 @@
             padding: 0;
         }
 
+
         body {
-            font-family: "Segoe UI", Arial, sans-serif;
+
+            font-family:
+                "Segoe UI",
+                Arial,
+                sans-serif;
+
             background: #05070a;
+
             color: #ffffff;
+
             min-height: 100vh;
         }
+
 
         /* =========================
            APPLICATION
         ========================== */
 
         .app {
+
             display: flex;
+
             min-height: 100vh;
+
             background: #05070a;
         }
+
 
         /* =========================
            SIDEBAR
         ========================== */
 
         .sidebar {
+
             width: 280px;
+
             min-height: 100vh;
 
-            padding: 24px 18px;
+            padding:
+                24px 18px;
 
             display: flex;
+
             flex-direction: column;
 
             background:
@@ -53,67 +77,91 @@
                     #04a51e 100%
                 );
 
-            border-right: 1px solid rgba(255,255,255,0.15);
+            border-right:
+                1px solid
+                rgba(255,255,255,0.15);
 
             box-shadow:
-                8px 0 35px rgba(0,0,0,0.35);
+                8px 0 35px
+                rgba(0,0,0,0.35);
         }
+
 
         /* =========================
            LOGO
         ========================== */
 
         .logo-container {
+
             width: 100%;
 
             display: flex;
+
             justify-content: center;
+
             align-items: center;
 
             margin-bottom: 42px;
         }
 
+
         .logo {
+
             width: 235px;
+
             height: 235px;
 
             object-fit: contain;
 
             filter:
                 drop-shadow(
-                    0 12px 25px rgba(0,0,0,0.35)
+                    0 12px 25px
+                    rgba(0,0,0,0.35)
                 );
         }
+
 
         /* =========================
            MENU
         ========================== */
 
         .menu-title {
+
             font-size: 15px;
+
             font-weight: 600;
 
-            letter-spacing: 0.5px;
+            letter-spacing:
+                0.5px;
 
-            margin: 0 0 14px 8px;
+            margin:
+                0 0 14px 8px;
 
-            color: rgba(255,255,255,0.9);
+            color:
+                rgba(255,255,255,0.9);
         }
 
+
         .menu-button {
+
             width: 100%;
+
             min-height: 64px;
 
             display: flex;
+
             align-items: center;
 
             gap: 16px;
 
-            padding: 10px 16px;
+            padding:
+                10px 16px;
 
             border-radius: 12px;
 
-            border: 1px solid rgba(255,255,255,0.20);
+            border:
+                1px solid
+                rgba(255,255,255,0.20);
 
             background:
                 linear-gradient(
@@ -127,16 +175,24 @@
             text-decoration: none;
 
             box-shadow:
-                inset 0 1px 0 rgba(255,255,255,0.12),
-                0 8px 20px rgba(0,0,0,0.15);
+                inset 0 1px 0
+                rgba(255,255,255,0.12),
 
-            transition: all 0.25s ease;
+                0 8px 20px
+                rgba(0,0,0,0.15);
+
+            transition:
+                all 0.25s ease;
         }
 
-        .menu-button:hover {
-            transform: translateY(-2px);
 
-            border-color: #39ff14;
+        .menu-button:hover {
+
+            transform:
+                translateY(-2px);
+
+            border-color:
+                #39ff14;
 
             background:
                 linear-gradient(
@@ -146,67 +202,91 @@
                 );
 
             box-shadow:
-                0 0 20px rgba(0,255,153,0.25),
-                0 10px 25px rgba(0,0,0,0.25);
+                0 0 20px
+                rgba(0,255,153,0.25),
+
+                0 10px 25px
+                rgba(0,0,0,0.25);
         }
 
+
         .menu-icon {
+
             width: 38px;
+
             height: 38px;
 
             display: grid;
+
             place-items: center;
 
             border-radius: 9px;
 
-            background: rgba(255,255,255,0.95);
+            background:
+                rgba(255,255,255,0.95);
 
-            color: #0752a5;
+            color:
+                #0752a5;
 
             font-size: 20px;
+
             font-weight: bold;
         }
 
+
         .menu-text {
+
             flex: 1;
 
             font-size: 18px;
+
             font-weight: 600;
         }
 
+
         .menu-arrow {
+
             font-size: 26px;
         }
+
 
         /* =========================
            SIDEBAR FOOTER
         ========================== */
 
         .sidebar-footer {
+
             margin-top: auto;
 
             padding-top: 22px;
 
             border-top:
-                1px solid rgba(255,255,255,0.20);
+                1px solid
+                rgba(255,255,255,0.20);
 
             text-align: center;
 
             font-size: 13px;
+
             line-height: 1.6;
 
-            color: rgba(255,255,255,0.9);
+            color:
+                rgba(255,255,255,0.9);
         }
+
 
         /* =========================
            MAIN CONTENT
         ========================== */
 
         .main-content {
+
             flex: 1;
+
             min-width: 0;
 
-            padding: 40px 48px;
+            padding:
+                40px 48px;
 
             background:
                 radial-gradient(
@@ -214,19 +294,26 @@
                     rgba(0,110,255,0.06),
                     transparent 35%
                 ),
+
                 #05070a;
         }
+
 
         /* =========================
            HERO
         ========================== */
 
         .hero {
-            padding: 35px 0 28px;
+
+            padding:
+                35px 0 28px;
         }
 
+
         .hero h1 {
-            font-size: clamp(42px, 5vw, 62px);
+
+            font-size:
+                clamp(42px, 5vw, 62px);
 
             font-weight: 700;
 
@@ -235,28 +322,46 @@
             margin-bottom: 15px;
         }
 
+
         .hero h1 .blue {
-            color: #119cff;
+
+            color:
+                #119cff;
         }
+
 
         .hero h1 .green {
-            color: #39e600;
+
+            color:
+                #39e600;
         }
 
+
         .hero p {
+
             font-size: 20px;
 
             color:
                 rgba(255,255,255,0.72);
+
+            /*
+             * Keep the description on
+             * one line on desktop.
+             */
+
+            white-space: nowrap;
         }
+
 
         /* =========================
            CARD CONTAINER
         ========================== */
 
         .cards {
+
             width: 100%;
         }
+
 
         /* =========================
            INTUNE TILE
@@ -265,14 +370,17 @@
         .learning-card {
 
             width: 620px;
+
             max-width: 100%;
 
             height: 150px;
 
             display: flex;
+
             align-items: center;
 
-            padding: 18px 22px;
+            padding:
+                18px 22px;
 
             border-radius: 15px;
 
@@ -283,11 +391,16 @@
                     rgba(5,9,13,0.98)
                 );
 
-            border: 1px solid #00b7ff;
+            border:
+                1px solid
+                #00b7ff;
 
             box-shadow:
-                0 0 0 1px rgba(0,183,255,0.30),
-                0 0 25px rgba(0,183,255,0.07);
+                0 0 0 1px
+                rgba(0,183,255,0.30),
+
+                0 0 25px
+                rgba(0,183,255,0.07);
 
             text-decoration: none;
 
@@ -302,6 +415,7 @@
                 box-shadow 0.25s ease,
                 border-color 0.25s ease;
         }
+
 
         .learning-card::before {
 
@@ -324,15 +438,20 @@
                 );
 
             -webkit-mask:
-                linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0)
+                content-box,
+
                 linear-gradient(#fff 0 0);
 
-            -webkit-mask-composite: xor;
+            -webkit-mask-composite:
+                xor;
 
-            mask-composite: exclude;
+            mask-composite:
+                exclude;
 
             pointer-events: none;
         }
+
 
         .learning-card:hover {
 
@@ -343,9 +462,13 @@
                 #00d9ff;
 
             box-shadow:
-                0 0 25px rgba(0,183,255,0.20),
-                0 10px 28px rgba(0,0,0,0.35);
+                0 0 25px
+                rgba(0,183,255,0.20),
+
+                0 10px 28px
+                rgba(0,0,0,0.35);
         }
+
 
         /* =========================
            INTUNE ICON
@@ -354,12 +477,15 @@
         .card-icon {
 
             width: 82px;
+
             height: 82px;
 
             flex-shrink: 0;
 
             display: flex;
+
             align-items: center;
+
             justify-content: center;
 
             margin-right: 24px;
@@ -374,13 +500,16 @@
                 );
         }
 
+
         .intune-icon {
 
             position: relative;
 
             width: 62px;
+
             height: 55px;
         }
+
 
         .screen-one,
         .screen-two {
@@ -388,6 +517,7 @@
             position: absolute;
 
             width: 43px;
+
             height: 43px;
 
             border-radius: 7px;
@@ -400,20 +530,26 @@
                 );
 
             box-shadow:
-                0 6px 15px rgba(0,140,255,0.30);
+                0 6px 15px
+                rgba(0,140,255,0.30);
         }
+
 
         .screen-one {
 
             left: 0;
+
             top: 0;
         }
+
 
         .screen-two {
 
             right: 0;
+
             bottom: 0;
         }
+
 
         .screen-one::after,
         .screen-two::after {
@@ -423,6 +559,7 @@
             position: absolute;
 
             width: 14px;
+
             height: 14px;
 
             border-radius: 50%;
@@ -431,11 +568,16 @@
                 rgba(0,50,150,0.65);
 
             left: 50%;
+
             top: 50%;
 
             transform:
-                translate(-50%, -50%);
+                translate(
+                    -50%,
+                    -50%
+                );
         }
+
 
         /* =========================
            CARD TEXT
@@ -448,6 +590,7 @@
             flex: 0 1 auto;
         }
 
+
         .card-content h2 {
 
             font-size: 27px;
@@ -456,6 +599,7 @@
 
             font-weight: 650;
         }
+
 
         .card-content p {
 
@@ -468,6 +612,7 @@
             color:
                 rgba(255,255,255,0.68);
         }
+
 
         /* =========================
            ARROW
@@ -492,11 +637,13 @@
                 transform 0.25s ease;
         }
 
+
         .learning-card:hover .card-arrow {
 
             transform:
                 translateX(6px);
         }
+
 
         /* =========================
            RESPONSIVE
@@ -505,50 +652,85 @@
         @media (max-width: 900px) {
 
             .sidebar {
+
                 width: 240px;
             }
 
+
             .logo {
+
                 width: 195px;
+
                 height: 195px;
             }
 
+
             .main-content {
+
                 padding: 30px;
             }
 
+
             .learning-card {
+
                 width: 100%;
             }
         }
 
+
         @media (max-width: 700px) {
 
             .app {
+
                 flex-direction: column;
             }
 
+
             .sidebar {
+
                 width: 100%;
+
                 min-height: auto;
             }
 
+
             .logo {
+
                 width: 170px;
+
                 height: 170px;
             }
 
+
             .sidebar-footer {
+
                 margin-top: 30px;
             }
 
+
             .main-content {
-                padding: 25px 20px;
+
+                padding:
+                    25px 20px;
             }
 
+
             .hero h1 {
+
                 font-size: 40px;
             }
+
+
+            /*
+             * Allow the description to wrap
+             * naturally on small screens.
+             */
+
+            .hero p {
+
+                white-space: normal;
+            }
+
 
             .learning-card {
 
@@ -559,16 +741,21 @@
                 padding: 22px;
             }
 
+
             .card-content p {
+
                 white-space: normal;
             }
+
         }
 
     </style>
+
 </head>
 
 
 <body>
+
 
 <div class="app">
 
@@ -605,9 +792,11 @@
                 ▦
             </div>
 
+
             <div class="menu-text">
                 Intune
             </div>
+
 
             <div class="menu-arrow">
                 ›
@@ -619,6 +808,7 @@
         <div class="sidebar-footer">
 
             © 2026 My Learning Path.<br>
+
             All Rights Reserved.
 
         </div>
@@ -634,14 +824,19 @@
     <main class="main-content">
 
 
+        <!-- HERO -->
+
         <section class="hero">
+
 
             <h1>
 
                 My
+
                 <span class="blue">
                     Learning
                 </span>
+
                 <span class="green">
                     Path
                 </span>
@@ -652,6 +847,7 @@
             <p>
                 A collection of hands-on labs, experiments, and topics explored along my learning journey.
             </p>
+
 
         </section>
 
@@ -688,6 +884,7 @@
                         Intune
                     </h2>
 
+
                     <p>
                         Hands-on Intune labs and topics explored
                     </p>
@@ -708,7 +905,10 @@
 
     </main>
 
+
 </div>
 
+
 </body>
+
 </html>

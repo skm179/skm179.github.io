@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
     <meta charset="UTF-8">
@@ -22,6 +23,7 @@
 
 
         body {
+
             font-family:
                 "Segoe UI",
                 Arial,
@@ -40,6 +42,7 @@
         ========================================= */
 
         .app {
+
             display: flex;
 
             min-height: 100vh;
@@ -423,7 +426,7 @@
 
         .hero p {
 
-            max-width: 850px;
+            max-width: none;
 
             font-size: 18px;
 
@@ -431,6 +434,8 @@
 
             color:
                 rgba(255,255,255,0.72);
+
+            white-space: nowrap;
         }
 
 
@@ -663,12 +668,14 @@
                 width: 240px;
             }
 
+
             .logo {
 
                 width: 195px;
 
                 height: 195px;
             }
+
 
             .main-content {
 
@@ -727,6 +734,13 @@
 
                 font-size: 38px;
             }
+
+
+            .hero p {
+
+                white-space: normal;
+            }
+
         }
 
     </style>
@@ -958,9 +972,11 @@
             <h1>
 
                 My
+
                 <span class="blue">
                     Intune
                 </span>
+
                 <span class="green">
                     Labs
                 </span>
@@ -969,11 +985,7 @@
 
 
             <p>
-
-                A collection of hands-on Microsoft Intune
-                labs, configurations, experiments, and topics
-                explored as part of my learning journey.
-
+                A collection of hands-on Microsoft Intune labs, configurations, experiments, and topics explored as part of my learning journey.
             </p>
 
         </section>
@@ -1092,4 +1104,5 @@
 
 
 </body>
+
 </html>
